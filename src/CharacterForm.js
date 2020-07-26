@@ -45,6 +45,10 @@ export default class CharacterForm extends React.Component {
 		document.getElementById("skillproficiency2").disabled = false;
 		document.getElementById("skillproficiency3").disabled = false;
 		document.getElementById("skillproficiency4").disabled = false;
+		document.getElementById("skillproficiency1").hidden = false;
+		document.getElementById("skillproficiency2").hidden = false;
+		document.getElementById("skillproficiency3").hidden = false;
+		document.getElementById("skillproficiency4").hidden = false;
  
 		if (event.target.value === "Barbarian") {
 			this.setState({ skillboard: this.state.barbarianskills});
@@ -141,9 +145,11 @@ export default class CharacterForm extends React.Component {
 		{if (event.target.value === "") {
 			this.setState({ skillproficiencies: this.state.skillproficiencies });
 			event.target.disabled = false
+			event.target.hidden = false
 		} else {
 			this.setState({ skillproficiencies: [...this.state.skillproficiencies, pick] });
 			event.target.disabled = true
+			event.target.hidden = true
 		}}
 	}
 		
@@ -180,50 +186,50 @@ export default class CharacterForm extends React.Component {
 				<Form.Field>
 					<h3>Choose your class skill proficiencies below once you select your class</h3>
                     <div id="skillselect1" hidden={true}>
-				    <label htmlFor="skillproficiency1">First Skills Proficieny</label>
+				    <label htmlFor="skillproficiency1">Selected Skills Proficieny &nbsp; : &nbsp; &nbsp; &nbsp; {this.state.skillproficiencies[0]}</label>
 					<select 
 					    name="skillproficiency1"
 					    id="skillproficiency1"
 					    onChange={this.onSkillPick}>
 						    <option hidden={true}>Waiting for assignment...</option>
                             <option hidden={true} disabled="disabled" default={true}>Waiting for assignment...</option>
-						    { this.state.skillboard.map((value, index) => <option key={index} value={value}> {value} </option>)}
+						    { this.state.skillboard.filter(value => (value !== this.state.skillproficiencies[0]) && (value !== this.state.skillproficiencies[1]) && (value !== this.state.skillproficiencies[2]) && (value !== this.state.skillproficiencies[3])).map((value, index) => <option key={index} value={value}> {value} </option>)}
 				    </select>
 					</div>
 
 					<div id="skillselect2" hidden={true}>
-					<label htmlFor="skillproficiency2">Second Skills Proficieny</label>
+					<label htmlFor="skillproficiency2">Selected Skills Proficieny &nbsp; : &nbsp; &nbsp; &nbsp; {this.state.skillproficiencies[1]}</label>
 					<select 
 					    name="skillproficiency2"
 					    id="skillproficiency2"
 					    onChange={this.onSkillPick}>
 						    <option hidden={true}>Waiting for assignment...</option>
                             <option hidden={true} disabled="disabled" default={true}>Waiting for assignment...</option>
-						    { this.state.skillboard.map((value, index) => <option key={index} value={value}> {value} </option>)}
+						    { this.state.skillboard.filter(value => (value !== this.state.skillproficiencies[0]) && (value !== this.state.skillproficiencies[1]) && (value !== this.state.skillproficiencies[2]) && (value !== this.state.skillproficiencies[3])).map((value, index) => <option key={index} value={value}> {value} </option>)}
 				    </select>
 					</div>
 
 					<div id="skillselect3" hidden={true}>
-					<label htmlFor="skillproficiency3">Third Skills Proficieny</label>
+					<label htmlFor="skillproficiency3">Selected Skills Proficieny &nbsp; : &nbsp; &nbsp; &nbsp; {this.state.skillproficiencies[2]}</label>
 					<select 
 					    name="skillproficiency3"
 					    id="skillproficiency3"
 					    onChange={this.onSkillPick}>
 						    <option hidden={true}>Waiting for assignment...</option>
                             <option hidden={true} disabled="disabled" default={true}>Waiting for assignment...</option>
-						    { this.state.skillboard.map((value, index) => <option key={index} value={value}> {value} </option>)}
+						    { this.state.skillboard.filter(value => (value !== this.state.skillproficiencies[0]) && (value !== this.state.skillproficiencies[1]) && (value !== this.state.skillproficiencies[2]) && (value !== this.state.skillproficiencies[3])).map((value, index) => <option key={index} value={value}> {value} </option>)}
 				    </select>
 					</div>
 
 					<div id="skillselect4" hidden={true}>
-					<label htmlFor="skillproficiency4">Fourth Skills Proficieny</label>
+					<label htmlFor="skillproficiency4">Selected Skills Proficieny &nbsp; : &nbsp; &nbsp; &nbsp; {this.state.skillproficiencies[3]}</label>
 					<select 
 					    name="skillproficiency4"
 					    id="skillproficiency4"
 					    onChange={this.onSkillPick}>
 						    <option hidden={true}>Waiting for assignment...</option>
                             <option hidden={true} disabled="disabled" default={true}>Waiting for assignment...</option>
-						    { this.state.skillboard.map((value, index) => <option key={index} value={value}> {value} </option>)}
+						    { this.state.skillboard.filter(value => (value !== this.state.skillproficiencies[0]) && (value !== this.state.skillproficiencies[1]) && (value !== this.state.skillproficiencies[2]) && (value !== this.state.skillproficiencies[3])).map((value, index) => <option key={index} value={value}> {value} </option>)}
 				    </select>
 					</div>
 
