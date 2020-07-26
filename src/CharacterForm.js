@@ -3,9 +3,6 @@ import {Form} from 'semantic-ui-react';
 
 export default class CharacterForm extends React.Component {
 
-	// In the line 135 is the onSkillPick function and in that function needs to be some additions which makes 
-	// selected options disabled for all the available selections between line 184 and 227.
-
 	constructor(props) {
 		super(props);
 		this.state = {
